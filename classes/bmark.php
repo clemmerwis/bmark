@@ -9,7 +9,7 @@ class Bmark {
         $this->json_string = $this->get_json_from_file();
         $this->bmark_asArr = $this->get_bmark_asArr();
         $this->opts = $opts;
-        $this->addCategory_newPair();
+        $this->addBookmark();
     }
 
     public function get_json_from_file()
@@ -43,9 +43,9 @@ class Bmark {
         return $bmark;
     }
 
-    public function set_bmark($val)
+    public function set_bmark($bmark)
     {
-        $this->bmark_asArr = $val;
+        $this->bmark_asArr = $bmark;
     }
 
     public function get_bmark()
@@ -86,7 +86,7 @@ class Bmark {
         return $keyBool;
     }
 
-    public function addCategory_newPair()
+    public function addBookmark()
     {
         $opts = $this->get_opts();
         $bmark = $this->get_bmark();
