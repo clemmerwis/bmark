@@ -1,13 +1,18 @@
 <?php 
 class Bmark {
+    // json string acts as the Database for this app
     protected $json_string;
+
+    // Bookmark array constructed from json_string
     protected $bmark_asArr;
+
+    // user inputs
     protected $opts;
 
     public function __construct(array $opts)
     {
         $this->json_string = $this->get_json_from_file();
-        $this->bmark_asArr = $this->get_bmark_asArr();
+        $this->bmark_asArr = $this->create_bmark_asArr();
         $this->opts = $opts;
         $this->addBookmark();
     }
@@ -36,7 +41,7 @@ class Bmark {
         return $this->json_string;
     }
 
-    public function get_bmark_asArr() 
+    public function create_bmark_asArr() 
     {
         $jsonstring = $this->get_json_string();
         $bmark = json_decode($jsonstring, true);
@@ -68,7 +73,7 @@ class Bmark {
         fclose($fh);
     }
 
-    public function category_exists($optc, $bmark)
+    public function category_exists(string $optc, array $bmark)
     {
         $keys = array_keys($bmark);
         foreach ($keys as $key)

@@ -9,5 +9,4 @@ $opts = getopt("c:n:u:");
 
 $bmark = new Bmark($opts);
 print_r($bmark->get_bmark());
-echo "Script Completed";
 ?>
